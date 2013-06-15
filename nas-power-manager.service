@@ -1,0 +1,12 @@
+[Unit]
+Description=NAS power manager
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/nas-power-manager --debug --log-file=/var/log/nas-power-manager.debug.log start
+StandardOutput=syslog
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
